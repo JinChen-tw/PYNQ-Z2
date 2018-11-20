@@ -1,50 +1,14 @@
-import cv2
-from cv2 import *
-import numpy as np
-from .cv2pynq import *
-from pynq.lib.video import *
-
 import os
-#import numpy as np
+import numpy as np
 from pynq import Overlay, PL, MMIO
 from pynq import DefaultIP, DefaultHierarchy
 from pynq.lib import DMA
-#import cv2
-
-
+import cv2
+import tempfile
 
 CV2PYNQ_ROOT_DIR = os.path.dirname(os.path.realpath(__file__))
 CV2PYNQ_BIT_DIR = os.path.join(CV2PYNQ_ROOT_DIR, 'bitstreams')
 
-def Sobel(src, ddepth, dx, dy, dst=None, ksize=3, scale=1, delta=0, borderType=cv2.BORDER_DEFAULT):
-    """dst = cv.Sobel(	src, ddepth, dx, dy[, dst[, ksize[, scale[, delta[, borderType]]]]]	)
-    Executes the Sobel operator on hardware if input parameters fit to hardware constraints.
-    Otherwise the OpenCV Sobel function is called."""
-    if (ksize == 3 or ksize == 5) and (scale == 1) and (delta == 0) and (borderType == cv2.BORDER_DEFAULT) :
-        if (src.dtype == np.uint8) and (src.ndim == 2) :
-            if (src.shape[0] <= cv2pynq.MAX_HEIGHT) and (src.shape[0] > 0) and (src.shape[1] <= cv2pynq.MAX_WIDTH) and (src.shape[1] > 0) :
-                if ((ddepth == -1) and (dx == 1) and (dy == 0)) or ((ddepth == -1) and (dx == 0) and (dy == 1)) :
-                    return c.Sobel(src, ddepth, dx, dy, dst, ksize)   
-    return cv2.Sobel(src, ddepth, dx, dy, dst, ksize, scale, delta, borderType)
-
-def Laplacian(src, ddepth, dst=None, ksize=1, scale=1, delta=0, borderType=cv2.BORDER_DEFAULT):
-    """dst = cv.Laplacian( src, ddepth[, dst[, ksize[, scale[, delta[, borderType]]]]]	)
-    Executes the Laplacian operator on hardware if input parameters fit to hardware constraints.
-    Otherwise the OpenCV Laplacian function is called."""
-    if (ksize == 1 or ksize ==3 or ksize == 5) and (scale == 1) and (delta == 0) and (borderType == cv2.BORDER_DEFAULT) :
-        if (src.dtype == np.uint8) and (src.ndim == 2) :
-            if (src.shape[0] <= cv2pynq.MAX_HEIGHT) and (src.shape[0] > 0) and (src.shape[1] <= cv2pynq.MAX_WIDTH) and (src.shape[1] > 0) :
-                if (ddepth == -1) :
-                    return c.Laplacian(src, ddepth, dst, ksize)   
-    return cv2.Laplacian(src, ddepth, dst, ksize, scale, delta, borderType)
-
-def close():
-    '''this function should be called after using the cv2pynq library.
-    It cleans up the internal state and frees the used CMA-buffers.
-    '''
-    c.close()
-    
-    
 class cv2pynq():
     MAX_WIDTH  = 1920
     MAX_HEIGHT = 1080
@@ -351,8 +315,4 @@ class cv2pynqDriverFilter2D_5(DefaultIP):
     def par_V(self, value):
         if not self.par_V_value == value:
             self.write(0x40, value)
-            self.par_V_value = value    
-
-
-c = cv2pynq()
-video = c.ol.video #cv2pynq uses the pynq video library and the Pynq-Z2 video subsystem
+            self.par_V_value = value 
