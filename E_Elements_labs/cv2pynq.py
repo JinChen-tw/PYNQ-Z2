@@ -6,15 +6,15 @@ from pynq.lib import DMA
 import cv2
 
 #CV2PYNQ_ROOT_DIR = os.path.dirname(os.path.realpath(__file__))
-CV2PYNQ_BIT_DIR = os.path.join('/home/xilinx/E_Elements_labs/E_Elements_labs', 'bitstreams')
+CV2PYNQ_BIT_DIR = os.path.join('/usr/local/lib/python3.6/dist-packages/E_Elements_labs', 'bitstreams')
 
 class cv2pynq():
     MAX_WIDTH  = 1920
     MAX_HEIGHT = 1080
     def __init__(self, load_overlay=True):
         #self.bitstream_name = None
-        #self.bitstream_name = "opencv.bit"
-        #self.bitstream_path = os.path.join(CV2PYNQ_BIT_DIR, self.bitstream_name)
+        self.bitstream_name = "opencv.bit"
+        self.bitstream_path = os.path.join(CV2PYNQ_BIT_DIR, self.bitstream_name)
         self.ol = Overlay(self.bitstream_path)
         self.ol.download()
         self.ol.reset()
