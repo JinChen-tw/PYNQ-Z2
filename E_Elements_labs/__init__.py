@@ -8,7 +8,7 @@ from pynq.lib.video import *
 
 __version__ = 0.6
 
-video = .cv2pynq.ol.video #cv2pynq uses the pynq video library and the Pynq-Z2 video subsystem
+video = cv2pynq.ol.video #cv2pynq uses the pynq video library and the Pynq-Z2 video subsystem
 
 def Sobel(src, ddepth, dx, dy, dst=None, ksize=3, scale=1, delta=0, borderType=cv2.BORDER_DEFAULT):
     """dst = cv.Sobel(	src, ddepth, dx, dy[, dst[, ksize[, scale[, delta[, borderType]]]]]	)
