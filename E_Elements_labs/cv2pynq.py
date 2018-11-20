@@ -13,8 +13,8 @@ class cv2pynq():
     MAX_HEIGHT = 1080
     def __init__(self, load_overlay=True):
         #self.bitstream_name = None
-        self.bitstream_name = "opencv.bit"
-        self.bitstream_path = os.path.join(CV2PYNQ_BIT_DIR, self.bitstream_name)
+        #self.bitstream_name = "opencv.bit"
+        #self.bitstream_path = os.path.join(CV2PYNQ_BIT_DIR, self.bitstream_name)
         self.ol = Overlay(self.bitstream_path)
         self.ol.download()
         self.ol.reset()
