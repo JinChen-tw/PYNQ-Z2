@@ -6,7 +6,7 @@ from pynq.lib import DMA
 import cv2
 
 #CV2PYNQ_ROOT_DIR = os.path.dirname(os.path.realpath(__file__))
-CV2PYNQ_BIT_DIR = os.path.join('/home/xilinx/pynq/cv2pynq', 'bitstreams')
+CV2PYNQ_BIT_DIR = os.path.join('/home/xilinx/E-elements_lab/cv2pynq', 'bitstreams')
 
 class cv2pynq():
     MAX_WIDTH  = 1920
