@@ -52,7 +52,7 @@ setup(
 	package_data = {
 	'' : ['*.bit','*.tcl','*.py'],
 	},
-	data_files = [os.path.join('/home/xilinx/E-elements_lab/cv2pynq', 'bitstreams'),(os.path.join('/home/xilinx/jupyter_notebooks/E_Elements_labs',root.replace('notebooks/','')), [os.path.join(root, f) for f in files]) for root, dirs, files in os.walk('notebooks/')],
+	data_files = [(os.path.join('/home/xilinx/jupyter_notebooks/E_Elements_labs',root.replace('notebooks/','')), [os.path.join(root, f) for f in files]) for root, dirs, files in os.walk('notebooks/')],
 	description = "PYNQ-Z2 labs using a hardware accelerated "
 )
 
