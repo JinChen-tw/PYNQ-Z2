@@ -1,10 +1,10 @@
 from .loop import TestOverlay
 from .pitch_shift import pitch
-from . import cv2pynq
+from .cv2pynq import *
 
 __author__ = "E-Elements"
 __copyright__ = "Copyright 2017, Xilinx"
-__version__ = 0.8
+__version__ = 0.9
 
 
 
