@@ -1,6 +1,5 @@
 from .loop import TestOverlay
 from .pitch_shift import pitch
-from . import cv2pynq
 import cv2
 from cv2 import *
 import numpy as np
