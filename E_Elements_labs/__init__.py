@@ -5,12 +5,11 @@ from .cv2pynq import *
 import cv2
 from cv2 import *
 import numpy as np
-from .cv2pynq import *
 from pynq.lib.video import *
 
 __author__ = "E-Elements"
 __copyright__ = "Copyright 2017, Xilinx"
-__version__ = 0.9
+__version__ = 1.0
 
 c = cv2pynq()
 video = c.ol.video #cv2pynq uses the pynq video library and the Pynq-Z2 video subsystem
