@@ -4,7 +4,6 @@ from pynq import Overlay, PL, MMIO
 from pynq import DefaultIP, DefaultHierarchy
 from pynq.lib import DMA
 import cv2
-import tempfile
 
 CV2PYNQ_ROOT_DIR = os.path.dirname(os.path.realpath(__file__))
 CV2PYNQ_BIT_DIR = os.path.join(CV2PYNQ_ROOT_DIR, 'bitstreams')
@@ -315,4 +314,4 @@ class cv2pynqDriverFilter2D_5(DefaultIP):
     def par_V(self, value):
         if not self.par_V_value == value:
             self.write(0x40, value)
-            self.par_V_value = value 
+            self.par_V_value = value    
