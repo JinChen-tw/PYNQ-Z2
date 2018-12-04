@@ -35,16 +35,16 @@ sudo pip3.6 install git+https://github.com/E-Elements-tw/PYNQ-Z2.git (on PYNQ v2
 4.建立實作專案: 
 
      ○ 實作一 (運用多重迴圈運算)，在Tcl Console鍵入:
-```     
+  
       source ./lab1.tcl 
 ```
      
      ○ 實作二 (實現聲音調變器)，在Tcl Console鍵入:
-```     
+   
       source ./lab2.tcl 
 ``` 
  
      ○ 實作三 (實現OpenCV影像處理)，在Tcl Console鍵入:      
-```     
+ 
       source ./lab3.tcl 
 ```
