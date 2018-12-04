@@ -28,7 +28,7 @@ sudo pip3.6 install git+https://github.com/E-Elements-tw/PYNQ-Z2.git (on PYNQ v2
 ```
   cd <範例檔案路徑>/PYNQ-Z2-master/E_Elements_labs/src/Pynq-Z2/  
 ```
-3.專案路徑建立所需的IP，在Tcl Console鍵入:
+3.在專案路徑下建立所需的IP，在Tcl Console鍵入:
 ```
   source ./build_base_ip.tcl
 ```
