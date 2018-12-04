@@ -18,7 +18,4 @@ sudo pip3 install git+https://github.com/E-Elements-tw/PYNQ-Z2.git (on PYNQ v2.3
 sudo pip3.6 install git+https://github.com/E-Elements-tw/PYNQ-Z2.git (on PYNQ v2.2 and earlier)
 ```
 
-
-
-
-# PYNQ-Z2
+# PYNQ-Z2 Hardware design rebuilt 

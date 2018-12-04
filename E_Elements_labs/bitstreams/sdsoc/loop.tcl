@@ -20,7 +20,7 @@ set script_folder [_tcl::get_script_folder]
 ################################################################
 # Check if script is running in correct Vivado version.
 ################################################################
-set scripts_vivado_version 2017.4
+set scripts_vivado_version 2018.2
 set current_vivado_version [version -short]
 
 if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
@@ -124,7 +124,7 @@ set bCheckIPsPassed 1
 set bCheckIPs 1
 if { $bCheckIPs == 1 } {
    set list_check_ips "\ 
-xilinx.com:ip:clk_wiz:5.4\
+xilinx.com:ip:clk_wiz:6.0\
 xilinx.com:ip:proc_sys_reset:5.0\
 xilinx.com:ip:processing_system7:5.5\
 xilinx.com:ip:xlconstant:1.1\
@@ -209,7 +209,7 @@ proc create_root_design { parentCell } {
  ] $axi_ic_processing_system7_0_M_AXI_GP0
 
   # Create instance: clk_wiz_0, and set properties
-  set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:5.4 clk_wiz_0 ]
+  set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0 ]
   set_property -dict [ list \
    CONFIG.CLKIN1_JITTER_PS {200.0} \
    CONFIG.CLKOUT1_JITTER {162.035} \
@@ -1036,13 +1036,6 @@ proc create_root_design { parentCell } {
   # Create instance: testloop_1, and set properties
   set testloop_1 [ create_bd_cell -type ip -vlnv xilinx.com:hls:testloop:1.0 testloop_1 ]
 
-  set_property -dict [ list \
-   CONFIG.SUPPORTS_NARROW_BURST {0} \
-   CONFIG.NUM_READ_OUTSTANDING {1} \
-   CONFIG.NUM_WRITE_OUTSTANDING {1} \
-   CONFIG.MAX_BURST_LENGTH {1} \
- ] [get_bd_intf_pins /testloop_1/s_axi_AXILiteS]
-
   # Create instance: xlconcat_0, and set properties
   set xlconcat_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_0 ]
   set_property -dict [ list \
@@ -1069,11 +1062,27 @@ proc create_root_design { parentCell } {
   connect_bd_net -net xlconcat_0_dout [get_bd_pins processing_system7_0/IRQ_F2P] [get_bd_pins xlconcat_0/dout]
 
   # Create address segments
-  create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs testloop_1/s_axi_AXILiteS/Reg] SEG_testloop_1_Reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x40000000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs testloop_1/s_axi_AXILiteS/Reg] SEG_testloop_1_Reg
 
 
   # Restore current instance
   current_bd_instance $oldCurInst
+
+  # Create PFM attributes
+  set_property PFM_NAME {e-elements.com:pynq-z2:pynq-z2:1.0} [get_files [current_bd_design].bd]
+  set_property PFM.CLOCK {clk_out1 {id "2" is_default "true" proc_sys_reset
+"proc_sys_reset_0" }  clk_out2 {id "1" is_default "false" proc_sys_reset
+"proc_sys_reset_1" }  clk_out3 {id "0" is_default "false" proc_sys_reset
+"proc_sys_reset_2" }  clk_out4 {id "3" is_default "false" proc_sys_reset
+"proc_sys_reset_3" }} [get_bd_cells /clk_wiz_0]
+  set_property PFM.AXI_PORT {M_AXI_GP0 {memport "M_AXI_GP"}  M_AXI_GP1 {memport "M_AXI_GP"}  S_AXI_ACP {memport "S_AXI_ACP" sptag "ACP" memory
+"processing_system7_0 ACP_DDR_LOWOCM"}  S_AXI_HP0 {memport "S_AXI_HP" sptag "HP0" memory
+"processing_system7_0 HP0_DDR_LOWOCM"}  S_AXI_HP1 {memport "S_AXI_HP" sptag "HP1" memory
+"processing_system7_0 HP1_DDR_LOWOCM"}  S_AXI_HP2 {memport "S_AXI_HP" sptag "HP2" memory
+"processing_system7_0 HP2_DDR_LOWOCM"}  S_AXI_HP3 {memport "S_AXI_HP" sptag "HP3" memory
+"processing_system7_0 HP3_DDR_LOWOCM"}} [get_bd_cells /processing_system7_0]
+  set_property PFM.IRQ {In0 {} In1 {} In2 {} In3 {} In4 {} In5 {} In6 {} In7 {} In8 {} In9 {} In10 {} In11 {} In12 {} In13 {} In14 {} In15 {}} [get_bd_cells /xlconcat_0]
+
 
   save_bd_design
 }

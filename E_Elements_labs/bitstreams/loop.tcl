@@ -20,7 +20,7 @@ set script_folder [_tcl::get_script_folder]
 ################################################################
 # Check if script is running in correct Vivado version.
 ################################################################
-set scripts_vivado_version 2017.4
+set scripts_vivado_version 2018.2
 set current_vivado_version [version -short]
 
 if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
@@ -44,7 +44,6 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 set list_projs [get_projects -quiet]
 if { $list_projs eq "" } {
    create_project project_1 myproj -part xc7z020clg400-1
-   set_property BOARD_PART tul.com.tw:pynq-z2:part0:1.0 [current_project]
 }
 
 
@@ -231,12 +230,16 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_APU_PERIPHERAL_FREQMHZ {650} \
    CONFIG.PCW_ARMPLL_CTRL_FBDIV {26} \
    CONFIG.PCW_CAN0_BASEADDR {0xE0008000} \
+   CONFIG.PCW_CAN0_GRP_CLK_ENABLE {0} \
    CONFIG.PCW_CAN0_HIGHADDR {0xE0008FFF} \
    CONFIG.PCW_CAN0_PERIPHERAL_CLKSRC {External} \
+   CONFIG.PCW_CAN0_PERIPHERAL_ENABLE {0} \
    CONFIG.PCW_CAN0_PERIPHERAL_FREQMHZ {-1} \
    CONFIG.PCW_CAN1_BASEADDR {0xE0009000} \
+   CONFIG.PCW_CAN1_GRP_CLK_ENABLE {0} \
    CONFIG.PCW_CAN1_HIGHADDR {0xE0009FFF} \
    CONFIG.PCW_CAN1_PERIPHERAL_CLKSRC {External} \
+   CONFIG.PCW_CAN1_PERIPHERAL_ENABLE {0} \
    CONFIG.PCW_CAN1_PERIPHERAL_FREQMHZ {-1} \
    CONFIG.PCW_CAN_PERIPHERAL_CLKSRC {IO PLL} \
    CONFIG.PCW_CAN_PERIPHERAL_DIVISOR0 {1} \
@@ -390,6 +393,20 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_FPGA_FCLK1_ENABLE {0} \
    CONFIG.PCW_FPGA_FCLK2_ENABLE {0} \
    CONFIG.PCW_FPGA_FCLK3_ENABLE {0} \
+   CONFIG.PCW_FTM_CTI_IN0 {<Select>} \
+   CONFIG.PCW_FTM_CTI_IN1 {<Select>} \
+   CONFIG.PCW_FTM_CTI_IN2 {<Select>} \
+   CONFIG.PCW_FTM_CTI_IN3 {<Select>} \
+   CONFIG.PCW_FTM_CTI_OUT0 {<Select>} \
+   CONFIG.PCW_FTM_CTI_OUT1 {<Select>} \
+   CONFIG.PCW_FTM_CTI_OUT2 {<Select>} \
+   CONFIG.PCW_FTM_CTI_OUT3 {<Select>} \
+   CONFIG.PCW_GP0_EN_MODIFIABLE_TXN {1} \
+   CONFIG.PCW_GP0_NUM_READ_THREADS {4} \
+   CONFIG.PCW_GP0_NUM_WRITE_THREADS {4} \
+   CONFIG.PCW_GP1_EN_MODIFIABLE_TXN {1} \
+   CONFIG.PCW_GP1_NUM_READ_THREADS {4} \
+   CONFIG.PCW_GP1_NUM_WRITE_THREADS {4} \
    CONFIG.PCW_GPIO_BASEADDR {0xE000A000} \
    CONFIG.PCW_GPIO_EMIO_GPIO_ENABLE {0} \
    CONFIG.PCW_GPIO_EMIO_GPIO_WIDTH {64} \
@@ -398,10 +415,14 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_GPIO_MIO_GPIO_IO {MIO} \
    CONFIG.PCW_GPIO_PERIPHERAL_ENABLE {0} \
    CONFIG.PCW_I2C0_BASEADDR {0xE0004000} \
+   CONFIG.PCW_I2C0_GRP_INT_ENABLE {0} \
    CONFIG.PCW_I2C0_HIGHADDR {0xE0004FFF} \
+   CONFIG.PCW_I2C0_PERIPHERAL_ENABLE {0} \
    CONFIG.PCW_I2C0_RESET_ENABLE {0} \
    CONFIG.PCW_I2C1_BASEADDR {0xE0005000} \
+   CONFIG.PCW_I2C1_GRP_INT_ENABLE {0} \
    CONFIG.PCW_I2C1_HIGHADDR {0xE0005FFF} \
+   CONFIG.PCW_I2C1_PERIPHERAL_ENABLE {0} \
    CONFIG.PCW_I2C1_RESET_ENABLE {0} \
    CONFIG.PCW_I2C_PERIPHERAL_FREQMHZ {25} \
    CONFIG.PCW_I2C_RESET_ENABLE {1} \
@@ -725,6 +746,7 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_PCAP_PERIPHERAL_DIVISOR0 {5} \
    CONFIG.PCW_PCAP_PERIPHERAL_FREQMHZ {200} \
    CONFIG.PCW_PERIPHERAL_BOARD_PRESET {None} \
+   CONFIG.PCW_PJTAG_PERIPHERAL_ENABLE {0} \
    CONFIG.PCW_PLL_BYPASSMODE_ENABLE {0} \
    CONFIG.PCW_PRESET_BANK0_VOLTAGE {LVCMOS 3.3V} \
    CONFIG.PCW_PRESET_BANK1_VOLTAGE {LVCMOS 1.8V} \
@@ -805,6 +827,13 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_TPIU_PERIPHERAL_FREQMHZ {200} \
    CONFIG.PCW_TRACE_BUFFER_CLOCK_DELAY {12} \
    CONFIG.PCW_TRACE_BUFFER_FIFO_SIZE {128} \
+   CONFIG.PCW_TRACE_GRP_16BIT_ENABLE {0} \
+   CONFIG.PCW_TRACE_GRP_2BIT_ENABLE {0} \
+   CONFIG.PCW_TRACE_GRP_32BIT_ENABLE {0} \
+   CONFIG.PCW_TRACE_GRP_4BIT_ENABLE {0} \
+   CONFIG.PCW_TRACE_GRP_8BIT_ENABLE {0} \
+   CONFIG.PCW_TRACE_INTERNAL_WIDTH {2} \
+   CONFIG.PCW_TRACE_PERIPHERAL_ENABLE {0} \
    CONFIG.PCW_TRACE_PIPELINE_WIDTH {8} \
    CONFIG.PCW_TTC0_BASEADDR {0xE0104000} \
    CONFIG.PCW_TTC0_CLK0_PERIPHERAL_CLKSRC {CPU_1X} \
@@ -817,6 +846,7 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_TTC0_CLK2_PERIPHERAL_DIVISOR0 {1} \
    CONFIG.PCW_TTC0_CLK2_PERIPHERAL_FREQMHZ {133.333333} \
    CONFIG.PCW_TTC0_HIGHADDR {0xE0104fff} \
+   CONFIG.PCW_TTC0_PERIPHERAL_ENABLE {0} \
    CONFIG.PCW_TTC1_BASEADDR {0xE0105000} \
    CONFIG.PCW_TTC1_CLK0_PERIPHERAL_CLKSRC {CPU_1X} \
    CONFIG.PCW_TTC1_CLK0_PERIPHERAL_DIVISOR0 {1} \
@@ -828,6 +858,7 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_TTC1_CLK2_PERIPHERAL_DIVISOR0 {1} \
    CONFIG.PCW_TTC1_CLK2_PERIPHERAL_FREQMHZ {133.333333} \
    CONFIG.PCW_TTC1_HIGHADDR {0xE0105fff} \
+   CONFIG.PCW_TTC1_PERIPHERAL_ENABLE {0} \
    CONFIG.PCW_TTC_PERIPHERAL_FREQMHZ {50} \
    CONFIG.PCW_UART0_BASEADDR {0xE0000000} \
    CONFIG.PCW_UART0_BAUD_RATE {115200} \
@@ -965,6 +996,7 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_VALUE_SILVERSION {3} \
    CONFIG.PCW_WDT_PERIPHERAL_CLKSRC {CPU_1X} \
    CONFIG.PCW_WDT_PERIPHERAL_DIVISOR0 {1} \
+   CONFIG.PCW_WDT_PERIPHERAL_ENABLE {0} \
    CONFIG.PCW_WDT_PERIPHERAL_FREQMHZ {133.333333} \
  ] $processing_system7_0
 
@@ -979,11 +1011,6 @@ proc create_root_design { parentCell } {
 
   # Create instance: testloop_0, and set properties
   set testloop_0 [ create_bd_cell -type ip -vlnv xilinx.com:hls:testloop:1.0 testloop_0 ]
-
-  set_property -dict [ list \
-   CONFIG.NUM_READ_OUTSTANDING {1} \
-   CONFIG.NUM_WRITE_OUTSTANDING {1} \
- ] [get_bd_intf_pins /testloop_0/s_axi_AXILiteS]
 
   # Create interface connections
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
