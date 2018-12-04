@@ -2,10 +2,10 @@
 
 PYNQ-Z2實作範例 
 
-- 實作一 : 運用多重迴圈運算 
+- 實作一 : 多重迴圈運算 
 - 實作二 : 實現聲音調變器
 - 實作三 : 實現OpenCV影像處理
-- 實作四 : 實現即時人臉偵測理
+- 實作四 : 實現即時人臉偵測
 
 
 
@@ -34,7 +34,7 @@ sudo pip3.6 install git+https://github.com/E-Elements-tw/PYNQ-Z2.git (on PYNQ v2
 ```
 4.建立實作專案: 
 
-     ○ 實作一 (運用多重迴圈運算)，在Tcl Console鍵入:
+     ○ 實作一 (多重迴圈運算)，在Tcl Console鍵入:
       source ./lab1.tcl 
 
      
