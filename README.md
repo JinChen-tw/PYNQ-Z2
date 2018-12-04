@@ -20,7 +20,7 @@ sudo pip3.6 install git+https://github.com/E-Elements-tw/PYNQ-Z2.git (on PYNQ v2
 
 # PYNQ-Z2 Hardware design rebuilt
 
-重建硬體設計，將範例檔案下載到安裝了Vivado Design Suite的機器中（使用2018.2版本）。 按照分步說明進行操作：
+重建硬體設計，將範例檔案下載到安裝Vivado Design Suite的機器中（使用2018.2版本）。 按照以下步驟說明進行操作：
 
 1.下載並解壓縮檔案到你的電腦:https://github.com/E-Elements-tw/PYNQ-Z2.git
 
