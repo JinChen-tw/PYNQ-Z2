@@ -1,17 +1,17 @@
 # E-Elements_labs PIP INSTALL Package
 
-PYNQ-Z2¹ê§@½d¨Ò 
+PYNQ-Z2å¯¦ä½œç¯„ä¾‹ 
 
-- ¹ê§@¤@ : ¦h­«°j°é¹Bºâ 
-- ¹ê§@¤G : ¹ê²{Án­µ½ÕÅÜ¾¹
-- ¹ê§@¤T : ¹ê²{OpenCV¼v¹³³B²z
-- ¹ê§@¥| : ¹ê²{§Y®É¤HÁy°»´ú
+- å¯¦ä½œä¸€ : å¤šé‡è¿´åœˆé‹ç®— 
+- å¯¦ä½œäºŒ : è²éŸ³èª¿è®Šå™¨
+- å¯¦ä½œä¸‰ : OpenCVå½±åƒè™•ç†
+- å¯¦ä½œå›› : å³æ™‚äººè‡‰åµæ¸¬
 
 
 
 ## Quick Start
 
-±N¹ê§@½d¨Ò¦w¸Ë¨ìPYNQ¡A½Ğ¥ı³s±µ¨ìPYNQ-Z2¶}µoª©¡A¥´¶}²×ºİ¨ÃÁä¤J¡G
+å°‡å¯¦ä½œç¯„ä¾‹å®‰è£åˆ°PYNQï¼Œè«‹å…ˆé€£æ¥åˆ°PYNQ-Z2é–‹ç™¼ç‰ˆï¼Œæ‰“é–‹çµ‚ç«¯ä¸¦éµå…¥ï¼š
 
 ```
 sudo pip3 install git+https://github.com/E-Elements-tw/PYNQ-Z2.git (on PYNQ v2.3)
@@ -20,28 +20,28 @@ sudo pip3.6 install git+https://github.com/E-Elements-tw/PYNQ-Z2.git (on PYNQ v2
 
 # PYNQ-Z2 Hardware design rebuilt
 
-­««ØµwÅé³]­p¡A±N½d¨ÒÀÉ®×¤U¸ü¨ì¦w¸ËVivado Design Suiteªº¾÷¾¹¤¤¡]¨Ï¥Î2018.2ª©¥»¡^¡C «ö·Ó¥H¤U¨BÆJ»¡©ú¶i¦æ¾Ş§@¡G
+é‡å»ºç¡¬é«”è¨­è¨ˆï¼Œå°‡ç¯„ä¾‹æª”æ¡ˆä¸‹è¼‰åˆ°å®‰è£Vivado Design Suiteçš„æ©Ÿå™¨ä¸­ï¼ˆä½¿ç”¨2018.2ç‰ˆæœ¬ï¼‰ã€‚ æŒ‰ç…§ä»¥ä¸‹æ­¥é©Ÿèªªæ˜é€²è¡Œæ“ä½œï¼š
 
-1.¤U¸ü¨Ã¸ÑÀ£ÁYÀÉ®×¨ì§Aªº¹q¸£:https://github.com/E-Elements-tw/PYNQ-Z2.git
+1.ä¸‹è¼‰ä¸¦è§£å£“ç¸®æª”æ¡ˆåˆ°ä½ çš„é›»è…¦:https://github.com/E-Elements-tw/PYNQ-Z2.git
 
-2.¶}±ÒVivado Design Suite³nÅé¡A¦bTcl ConsoleÁä¤J:
+2.é–‹å•ŸVivado Design Suiteè»Ÿé«”ï¼Œåœ¨Tcl Consoleéµå…¥:
 ```
-  cd <½d¨ÒÀÉ®×¸ô®|>/PYNQ-Z2-master/E_Elements_labs/src/Pynq-Z2/  
+  cd <ç¯„ä¾‹æª”æ¡ˆè·¯å¾‘>/PYNQ-Z2-master/E_Elements_labs/src/Pynq-Z2/  
 ```
-3.¦b±M®×¸ô®|¤U«Ø¥ß©Ò»İªºIP¡A¦bTcl ConsoleÁä¤J:
+3.åœ¨å°ˆæ¡ˆè·¯å¾‘ä¸‹å»ºç«‹æ‰€éœ€çš„IPï¼Œåœ¨Tcl Consoleéµå…¥:
 ```
   source ./build_base_ip.tcl
 ```
-4.«Ø¥ß¹ê§@±M®×: 
+4.å»ºç«‹å¯¦ä½œå°ˆæ¡ˆ: 
 
-     ¡³ ¹ê§@¤@ (¦h­«°j°é¹Bºâ)¡A¦bTcl ConsoleÁä¤J:
+     â—‹ å¯¦ä½œä¸€ (å¤šé‡è¿´åœˆé‹ç®—)ï¼Œåœ¨Tcl Consoleéµå…¥:
       source ./lab1.tcl 
 
      
-     ¡³ ¹ê§@¤G (¹ê²{Án­µ½ÕÅÜ¾¹)¡A¦bTcl ConsoleÁä¤J:
+     â—‹ å¯¦ä½œäºŒ (å¯¦ç¾è²éŸ³èª¿è®Šå™¨)ï¼Œåœ¨Tcl Consoleéµå…¥:
       source ./lab2.tcl 
 
  
-     ¡³ ¹ê§@¤T (¹ê²{OpenCV¼v¹³³B²z)¡A¦bTcl ConsoleÁä¤J:      
+     â—‹ å¯¦ä½œä¸‰ (å¯¦ç¾OpenCVå½±åƒè™•ç†)ï¼Œåœ¨Tcl Consoleéµå…¥:      
       source ./lab3.tcl 
 
