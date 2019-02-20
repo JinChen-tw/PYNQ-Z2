@@ -36,8 +36,8 @@ import os
 from glob import glob
 import site 
 
-if os.environ['BOARD'] != 'Pynq-Z2-Package':
-	print("Not E-Elements package ,please contact your supplier ")
+if os.environ['SUPPLIER'] != 'E-Elements':
+	print("Not E-Elements Pynq-Z2 package ,please contact your supplier ")
 	exit(1)
 
 setup(
