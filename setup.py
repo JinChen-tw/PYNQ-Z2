@@ -36,7 +36,7 @@ import os
 from glob import glob
 import site 
 
-if os.environ['USER'] != 'E-Elements':
+if os.environ['BOARD'] != 'Pynq-Z2-Package':
 	print("Not E-Elements package ,please contact your supplier ")
 	exit(1)
 
