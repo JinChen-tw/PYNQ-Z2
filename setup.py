@@ -36,9 +36,9 @@ import os
 from glob import glob
 import site 
 
-if os.environ['LABS_SUPPLIER'] != 'E-Elements':
-	print("Not E-Elements Pynq-Z2 package ,please contact your supplier ")
-	exit(1)
+#if os.environ['LABS_SUPPLIER'] != 'E-Elements':
+#	print("Not E-Elements Pynq-Z2 package ,please contact your supplier ")
+#	exit(1)
 
 setup(
 	name = "E_Elements_labs",
