@@ -2,7 +2,7 @@
 <spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <spirit:vendor>xilinx.com</spirit:vendor>
   <spirit:library>user</spirit:library>
-  <spirit:name>audio_codec_ctrl</spirit:name>
+  <spirit:name>audio</spirit:name>
   <spirit:version>1.0</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
@@ -915,7 +915,7 @@
       <xilinx:tags>
         <xilinx:tag xilinx:name="nopcore"/>
         <xilinx:tag xilinx:name="xilinx.com:user:i2s_ctrl:1.0_ARCHIVE_LOCATION">c:/xup/PYNQ_2_1_dev/audio_codec_ctrl_v1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="xilinx.com:user:audio_codec_ctrl:1.0_ARCHIVE_LOCATION">c:/xup/PYNQ_2_1_2017_4/ip_update/audio_codec_ctrl_v1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="xilinx.com:user:audio:1.0_ARCHIVE_LOCATION">c:/xup/PYNQ_2_1_2017_4/ip_update/audio_codec_ctrl_v1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
